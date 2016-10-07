@@ -1,11 +1,25 @@
 import React from 'react';
-// class App extends React.Component {
-//   render() {
-//     return <h1>Hello World</h1>
-//   }
-// }
+import ReactDOM from 'react-dom';
 
-const App = () => <h1>Hello EggHeads</h1>
+class App extends React.Component {
+  render() {
+    let txt = this.props.txt
+    return <h1>{txt}</h1>
+  }
+}
 
+App.propTypes = {
+    txt: React.PropTypes.string,
+    cat: React.PropTypes.number.isRequired
+}
+
+App.defaultProps = {
+  txt: 'this is the default'
+}
+
+ReactDOM.render(
+  <App cat={5} />,
+  document.getElementById('app')
+);
 
 export default App;
